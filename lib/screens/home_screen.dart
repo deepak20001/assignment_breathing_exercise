@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:meditation_app/constants/assets_path.dart';
+import 'package:meditation_app/screens/breath_exercise_screen.dart';
 
 import '../constants/app_constants.dart';
+import '../constants/routes.dart';
 import 'widgets/button_widget.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -36,26 +38,54 @@ class HomeScreen extends StatelessWidget {
           ),
           const Spacer(),
           const Text(
-            "Begin Timer",
+            "Begin Focus Timer",
             style: TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.w300,
             ),
           ),
           const SizedBox(height: 15),
-          const Row(
+          Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              ButtonWidget(title: "1 min"),
-              ButtonWidget(title: "2 min"),
+              ButtonWidget(
+                title: "1 min",
+                onPressed: () {
+                  Routes.instance.push(
+                      widget: const BreathExerciseScreen(time: 60),
+                      context: context);
+                },
+              ),
+              ButtonWidget(
+                title: "2 min",
+                onPressed: () {
+                  Routes.instance.push(
+                      widget: const BreathExerciseScreen(time: 120),
+                      context: context);
+                },
+              ),
             ],
           ),
           const SizedBox(height: 15),
-          const Row(
+          Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              ButtonWidget(title: "3 min"),
-              ButtonWidget(title: "5 min"),
+              ButtonWidget(
+                title: "3 min",
+                onPressed: () {
+                  Routes.instance.push(
+                      widget: const BreathExerciseScreen(time: 180),
+                      context: context);
+                },
+              ),
+              ButtonWidget(
+                title: "5 min",
+                onPressed: () {
+                  Routes.instance.push(
+                      widget: const BreathExerciseScreen(time: 300),
+                      context: context);
+                },
+              ),
             ],
           ),
           SizedBox(

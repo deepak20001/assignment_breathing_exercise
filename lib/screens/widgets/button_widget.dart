@@ -1,10 +1,15 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
 class ButtonWidget extends StatelessWidget {
   final String title;
+  final VoidCallback onPressed;
+  final Color btnColor;
   const ButtonWidget({
     Key? key,
     required this.title,
+    required this.onPressed,
+    this.btnColor = Colors.deepPurple,
   }) : super(key: key);
 
   @override
@@ -13,10 +18,9 @@ class ButtonWidget extends StatelessWidget {
       width: 170,
       height: 45,
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: onPressed,
         style: ButtonStyle(
-          backgroundColor:
-              MaterialStateProperty.all(Colors.deepPurple.shade300),
+          backgroundColor: MaterialStateProperty.all(btnColor),
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
             RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10.0),
